@@ -29,10 +29,10 @@ fi
 
 
 # init ElasticSearch
-ES=`sudo docker ps|grep blackanger/elasticsearch|awk '{print$1}'`
+ES=`sudo docker ps|grep huyong36/elasticsearch_with_ik|awk '{print$1}'`
 if [ -z "$ES" ]; then
   echo $ES
-  sudo docker run -d -p 9200:9200 -p 9300:9300 -name elastics dockerfile/elasticsearch
+  sudo docker run -d -p 9200:9200 -p 9300:9300 -name boring_engelbart huyong36/elasticsearch_with_ik -Des.index.analysis.analyzer.ik.type=ik
 fi
 
 

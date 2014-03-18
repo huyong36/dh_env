@@ -26,7 +26,7 @@ Vagrant.configure("2") do |config|
 
   #share folder
   config.vm.synced_folder "./vagrant", "/vagrant_data"
-  config.vm.synced_folder "./demo", "/demo"
+  config.vm.synced_folder "~/demo/campo", "/demo"
 
   config.vm.provider :virtualbox do |vb|
     vb.gui = false
@@ -43,7 +43,8 @@ Vagrant.configure("2") do |config|
 
   config.vm.provision "docker" do |d|
     d.pull_images "blackanger/my-mysql-server"
-    d.pull_images "dockerfile/elasticsearch"
+    d.pull_images "huyong36/elasticsearch_with_ik"
+    # d.pull_images "dockerfile/elasticsearch"
     # d.pull_images "blackanger/elasticsearch"
     d.pull_images "blackanger/memcached"
     # build
