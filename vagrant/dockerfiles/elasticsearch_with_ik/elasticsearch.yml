@@ -376,6 +376,9 @@ index:
       ik_smart:
         type: ik
         use_smart: true
+      standard_pinyin_analyzer:
+        tokenizer: xq_pinyin
+        filter: [standard]
       pinyin_analyzer:
         tokenizer: xq_pinyin
         filter: [standard,nGram]
