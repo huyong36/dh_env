@@ -365,6 +365,14 @@
 
 index:
   analysis:
+    tokenizer:
+      my_pinyin:
+        type: pinyin
+        first_letter: prefix
+        padding_char: ''
+      pinyin_first_letter:
+        type: pinyin
+        first_letter: only
       ik:
         alias:
         - ik_analyzer
@@ -375,3 +383,21 @@ index:
       ik_smart:
         type: ik
         use_smart: true
+      pinyin_ngram_analyzer:
+        type: custom
+        tokenizer: my_pinyin
+        filter:
+        - standard
+        - lowercase
+        - nGram
+      pinyin_first_letter_analyzer:
+        type: custom
+        tokenizer: pinyin_first_letter
+        filter:
+        - standard
+        - lowercase
+      pinyin_first_letter_analyzer_keyword:
+        type: custom
+        tokenizer: keyword
+        filter:
+        - pinyin_first_letter
